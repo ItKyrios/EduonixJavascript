@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handling DOM Events</title>
+
+    <script>
+      let counter = 0;
+      const amounts = [
+        'once',
+        'twice',
+        'three times',
+        'four times',
+        'five times',
+      ];
+
+      window.onload = () => {
+        const container = document.querySelector('.container');
+        const button = document.querySelector('button');
+
+        button.addEventListener('click', () => {
+          const notification = document.createElement('div');
+
+          notification.innerText = `You have clicked ${
+            amounts[counter] || `${counter + 1} times`
+          }`;
+          container.appendChild(notification);
+          counter++;
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <button>CLick Me</button>
+    <div class="container"></div>
+  </body>
+</html>

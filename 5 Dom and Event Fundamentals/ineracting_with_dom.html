@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interacting with the DOM</title>
+  </head>
+  <body>
+    <div class="container"></div>
+
+    <script>
+      const people = [
+        { name: 'Alice', age: 30, city: 'Brisbane', occupation: 'Engineer' },
+        { name: 'Bob', age: 25, city: 'Sydney', occupation: 'Designer' },
+        { name: 'Charlie', age: 35, city: 'Melbourne', occupation: 'Teacher' },
+        { name: 'Diana', age: 28, city: 'Perth', occupation: 'Nurse' },
+      ];
+
+      const personElements = people.map((person) => {
+        const attributeList = document.createElement('ul');
+        const nameElement = document.createElement('li');
+        const ageElement = document.createElement('li');
+        const cityElement = document.createElement('li');
+
+        nameElement.innerText = person.name;
+        ageElement.innerText = person.age;
+        cityElement.innerText = person.city;
+
+        attributeList.appendChild(nameElement);
+        attributeList.appendChild(ageElement);
+        attributeList.appendChild(cityElement);
+
+        return attributeList;
+      });
+
+      document.addEventListener('DOMContentLoaded', (event) => {
+        const container = document.querySelector('.container');
+        personElements.forEach((val) => container.appendChild(val));
+      });
+    </script>
+  </body>
+</html>
